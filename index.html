@@ -1,116 +1,587 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="description" content="Servicios profesionales de pintura, jardinería y reparaciones en España. Calidad, rapidez y confianza.">
+<meta name="keywords" content="pintura, jardinería, reparaciones, manitas, España">
+<meta name="author" content="Abdel Manitas">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdel Manitas - Servicios de Pintura, Jardinería y Reparaciones</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        * {margin:0;padding:0;box-sizing:border-box;}
+        /* ===== RESET Y VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
-            --primary-color:#2ecc71;
-            --primary-dark:#27ae60;
-            --dark-bg:#1a1a1a;
-            --white:#fff;
+            --primary-color: #2ecc71;
+            --primary-dark: #27ae60;
+            --secondary-color: #3498db;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         body {
-            font-family:'Poppins',sans-serif;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            background-color: var(--white);
         }
 
+        /* ===== CABECERA HERO ===== */
         header {
-            background:linear-gradient(135deg,#2ecc71,#27ae60);
-            color:white;
-            padding:100px 20px;
-            text-align:center;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            opacity: 0.95;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: var(--light-bg);
+        }
+
+        /* ===== NAVEGACIÓN ===== */
         nav {
-            position:sticky;
-            top:0;
-            background:white;
-            display:flex;
-            justify-content:center;
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            flex-wrap: wrap;
         }
 
         nav a {
-            padding:15px;
-            font-weight:600;
-            text-decoration:none;
-            color:black;
+            color: var(--text-dark);
+            padding: 18px 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95em;
         }
 
+        nav a:hover {
+            color: var(--primary-color);
+            background: rgba(46, 204, 113, 0.05);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* ===== SECCIONES GENERALES ===== */
         section {
-            padding:60px 20px;
-            max-width:1000px;
-            margin:auto;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        section h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.8em;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* ===== SERVICIOS ===== */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service i {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .service p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ===== SOBRE NOSOTROS ===== */
+        #sobre {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .about-content strong {
+            color: var(--primary-color);
+        }
+
+        /* ===== TESTIMONIOS ===== */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-size: 1.05em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95em;
+        }
+
+        .stars {
+            color: #f1c40f;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        /* ===== CONTACTO ===== */
+        #contacto {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+
+        #contacto h2 {
+            color: var(--white);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .contact-item a:hover {
+            color: var(--white);
+            text-decoration: underline;
         }
 
         .contact-form {
-            display:grid;
-            gap:15px;
-            max-width:500px;
-            margin:auto;
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
         }
 
-        input, textarea {
-            padding:12px;
-            border-radius:5px;
-            border:none;
-            background:#eee;
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            transition: all 0.3s ease;
         }
 
-        button {
-            padding:12px;
-            background:#2ecc71;
-            color:white;
-            border:none;
-            cursor:pointer;
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        #mensaje-exito {
-            display:none;
-            text-align:center;
-            margin-top:15px;
-            color:#2ecc71;
-            font-weight:bold;
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+        }
+
+        .contact-form button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f0f0f;
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.95em;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+
+            nav a {
+                padding: 12px 15px;
+                font-size: 0.85em;
+            }
+
+            .services,
+            .testimonials {
+                gap: 20px;
+            }
+
+            .service,
+            .testimonial {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 0.95em;
+            }
+
+            .btn-primary {
+                padding: 12px 30px;
+                font-size: 0.9em;
+            }
+
+            section {
+                padding: 50px 10px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+                margin-bottom: 30px;
+            }
+
+            nav a {
+                padding: 10px 12px;
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>🏠 Abdel Manitas</h1>
-    <p>Transformamos tu espacio</p>
-</header>
+    <!-- CABECERA HERO -->
+    <header id="inicio">
+        <h1>🏠 Abdel Manitas</h1>
+        <p>Transformamos tu espacio, cuidamos cada detalle</p>
+        <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">
+            Contáctanos Ahora
+        </button>
+    </header>
 
-<nav>
-    <a href="#contacto">Contacto</a>
-</nav>
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sobre">Sobre Nosotros</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-<section id="contacto">
-    <h2>Contáctanos</h2>
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="services">
+            <div class="service">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Pintura Profesional</h3>
+                <p>Pintura de interiores y exteriores con materiales de alta calidad. Transformamos tus espacios con colores vibrantes y acabados impecables.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-leaf"></i>
+                <h3>Jardinería Experta</h3>
+                <p>Diseño, mantenimiento y embellecimiento de jardines. Creamos espacios verdes que inspiran y embellecen tu hogar o negocio.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-hammer"></i>
+                <h3>Reparaciones Generales</h3>
+                <p>Soluciones efectivas para cualquier reparación. Garantizamos calidad, seguridad y profesionalismo en cada trabajo que realizamos.</p>
+            </div>
+        </div>
+    </section>
 
-    <form class="contact-form" action="https://formspree.io/f/xxxxxabc" method="POST">
-        
-        <input type="hidden" name="_subject" value="🔥 Nuevo cliente desde la web Abdel Manitas">
-        <input type="text" name="_honey" style="display:none">
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre">
+        <h2>Sobre Nosotros</h2>
+        <div class="about-content">
+            <p>
+                Somos el equipo que da vida a tus espacios. <strong>Pintamos, reparamos y cultivamos jardines con pasión y precisión</strong>, transformando tu hogar o negocio en un lugar donde cada detalle importa.
+            </p>
+            <p>
+                Nos encanta ver cómo una pared cobra color, un jardín florece o un rincón vuelve a funcionar perfectamente. En <strong>Abdel Manitas</strong>, no solo arreglamos y embellecemos, <strong>creamos experiencias</strong> que hacen que tu espacio inspire y sorprenda.
+            </p>
+        </div>
+    </section>
 
-        <input type="text" name="nombre" placeholder="Tu Nombre" required>
-        <input type="email" name="email" placeholder="Tu Email" required>
-        <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+        <h2>Testimonios de Clientes</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Excelente servicio, muy profesionales y atentos. Transformaron completamente mi casa."</p>
+                <p class="testimonial-author">— Juanjo Pérez</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Recomiendo totalmente sus trabajos y atención. El mejor equipo que he contratado."</p>
+                <p class="testimonial-author">— Manuel Rodríguez</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Puntuales, profesionales y con un acabado perfecto. Volveré a contratar sus servicios."</p>
+                <p class="testimonial-author">— Carmen López</p>
+            </div>
+        </div>
+    </section>
 
-        <button type="submit">Enviar Mensaje</button>
-    </form>
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h3>Teléfono</h3>
+                <a href="tel:+34638428654">+34 638 428 654</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/34638428654" target="_blank">Enviar Mensaje</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Ubicación</h3>
+                <p style="color: #7f8c8d;">España</p>
+            </div>
+        </div>
 
-    <p id="mensaje-exito">✅ ¡Mensaje enviado! Te responderemos pronto.</p>
-</section>
+       <form class="contact-form" action="https://formspree.io/f/mojplkpe" method="POST">
+    
+    <input type="hidden" name="_subject" value="🔥 Nuevo cliente desde la web Abdel Manitas">
+    
+    <!-- Copia al cliente -->
+    <input type="hidden" name="_cc" value="emaildelcliente">
+    
+    <!-- Anti spam -->
+    <input type="text" name="_honey" style="display:none">
 
-<script>
+    <input type="text" name="nombre" placeholder="Tu Nombre" required>
+    <input type="email" name="email" placeholder="Tu Email" required>
+    <textarea name="mensaje" placeholder="Tu Mensaje" rows="5" required></textarea>
+
+    <button type="submit">Enviar Mensaje</button>
+</form>
+
+<p id="mensaje-exito" style="display:none; text-align:center; margin-top:15px; color:#2ecc71; font-weight:600;">
+    ✅ ¡Mensaje enviado! Te responderemos pronto.
+</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Abdel Manitas. Todos los derechos reservados. | Servicios de Pintura, Jardinería y Reparaciones</p>
+    </footer>
+
+    <script>
 const form = document.querySelector(".contact-form");
 const mensaje = document.getElementById("mensaje-exito");
 
@@ -129,10 +600,38 @@ form.addEventListener("submit", async function(e) {
         form.reset();
         mensaje.style.display = "block";
     } else {
-        alert("Error al enviar");
+        alert("❌ Error al enviar");
     }
 });
 </script>
+
+<a href="https://wa.me/34638428654" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+</style>
 
 </body>
 </html>
