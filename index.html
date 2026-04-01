@@ -554,21 +554,17 @@
             </div>
         </div>
 
-       <form class="contact-form" action="https://formspree.io/f/mojplkpe" method="POST">
-    
-    <input type="hidden" name="_subject" value="🔥 Nuevo cliente desde la web Abdel Manitas">
-    
-    <!-- Copia al cliente -->
-    <input type="hidden" name="_cc" value="emaildelcliente">
-    
-    <!-- Anti spam -->
-    <input type="text" name="_honey" style="display:none">
+       <form action="https://formspree.io/f/mojplkpe" method="POST">
+  <label for="name">Nombre:</label>
+  <input type="text" name="name" id="name" required>
 
-    <input type="text" name="nombre" placeholder="Tu Nombre" required>
-    <input type="email" name="email" placeholder="Tu Email" required>
-    <textarea name="mensaje" placeholder="Tu Mensaje" rows="5" required></textarea>
+  <label for="email">Correo:</label>
+  <input type="email" name="email" id="email" required>
 
-    <button type="submit">Enviar Mensaje</button>
+  <label for="message">Mensaje:</label>
+  <textarea name="message" id="message" required></textarea>
+
+  <button type="submit">Enviar</button>
 </form>
 
 <p id="mensaje-exito" style="display:none; text-align:center; margin-top:15px; color:#2ecc71; font-weight:600;">
