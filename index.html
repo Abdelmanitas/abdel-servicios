@@ -568,14 +568,13 @@
 </form>
 
 <style>
-/* Contenedor del formulario */
 .contact-form {
-  max-width: 500px;       /* ancho máximo */
-  margin: 40px auto;      /* centrado horizontal con margen superior */
-  padding: 20px;          /* espacio interior */
-  background-color: #f9f9f9; /* fondo suave */
-  border-radius: 10px;    /* bordes redondeados */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* sombra sutil */
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   font-family: Arial, sans-serif;
 }
 
@@ -587,32 +586,34 @@
   color: #333;
 }
 
-/* Campos de entrada y textarea */
+/* Campos de entrada */
 .contact-form input,
 .contact-form textarea {
+  display: block;       /* importante para que no se amontonen */
   width: 100%;
   padding: 10px 12px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  box-sizing: border-box;
   font-size: 16px;
-  transition: border-color 0.3s;
+  box-sizing: border-box; /* asegura que padding no rompa el ancho */
 }
 
-/* Efecto al enfocar */
+/* Focus visible */
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #007BFF;
   outline: none;
 }
 
-/* Botón de envío */
+/* Botón */
 .contact-form button {
+  display: block;
+  width: 100%;
   background-color: #007BFF;
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 12px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
@@ -622,6 +623,7 @@
 .contact-form button:hover {
   background-color: #0056b3;
 }
+
 </style>
 
 
