@@ -554,18 +554,75 @@
             </div>
         </div>
 
-       <form action="https://formspree.io/f/mojplkpe" method="POST">
+       <form action="https://formspree.io/f/mojplkpe" method="POST" class="contact-form">
   <label for="name">Nombre:</label>
-  <input type="text" name="name" id="name" required>
+  <input type="text" name="name" id="name" placeholder="Tu nombre" required>
 
   <label for="email">Correo:</label>
-  <input type="email" name="email" id="email" required>
+  <input type="email" name="email" id="email" placeholder="tu@correo.com" required>
 
   <label for="message">Mensaje:</label>
-  <textarea name="message" id="message" required></textarea>
+  <textarea name="message" id="message" placeholder="Escribe tu mensaje..." required></textarea>
 
   <button type="submit">Enviar</button>
 </form>
+
+<style>
+/* Contenedor del formulario */
+.contact-form {
+  max-width: 500px;       /* ancho máximo */
+  margin: 40px auto;      /* centrado horizontal con margen superior */
+  padding: 20px;          /* espacio interior */
+  background-color: #f9f9f9; /* fondo suave */
+  border-radius: 10px;    /* bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* sombra sutil */
+  font-family: Arial, sans-serif;
+}
+
+/* Etiquetas */
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Campos de entrada y textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+/* Efecto al enfocar */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Botón de envío */
+.contact-form button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+</style>
 
 
 
